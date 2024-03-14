@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="408.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.AdminViewController">
+<AnchorPane prefHeight="465.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.AdminViewController">
    <children>
-      <TabPane prefHeight="408.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="465.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="UI View">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="780.0">
                      <children>
-                        <TableView fx:id="tableView" layoutX="205.0" layoutY="14.0" prefHeight="352.0" prefWidth="564.0">
+                        <TableView fx:id="tableView" layoutX="205.0" layoutY="14.0" prefHeight="406.0" prefWidth="564.0">
                            <columns>
                               <TableColumn fx:id="idCol" prefWidth="83.0" text="ID" />
                               <TableColumn fx:id="fnmCol" prefWidth="86.0" text="Firstname" />
@@ -46,8 +46,14 @@
                         <TextField fx:id="salaryTextField" layoutX="14.0" layoutY="283.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="266.0" text="Salary:" />
                         <Button fx:id="insertButton" layoutX="144.0" layoutY="325.0" mnemonicParsing="false" onAction="#onInsertButtonClick" prefHeight="25.0" prefWidth="48.0" text="Insert" />
-                        <Button fx:id="backButton" layoutX="16.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Back" />
+                        <Button fx:id="backButton" layoutX="16.0" layoutY="325.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="25.0" prefWidth="49.0" text="Back" />
                         <Button fx:id="reloadButton" layoutX="82.0" layoutY="325.0" mnemonicParsing="false" onAction="#onReloadButtonClick" prefHeight="25.0" prefWidth="56.0" text="Reload" />
+                        <Button fx:id="clearFieldsButton" layoutX="82.0" layoutY="354.0" mnemonicParsing="false" onAction="#onClearAllFieldsButtonClick" prefHeight="25.0" prefWidth="110.0" text="Clear All Fields" />
+                        <Label fx:id="infoLabel" layoutX="23.0" layoutY="394.0" text="Label" visible="false">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -55,16 +61,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea layoutX="16.0" layoutY="48.0" prefHeight="283.0" prefWidth="316.0">
+                        <TextArea fx:id="sqlScriptTextArea" layoutX="16.0" layoutY="48.0" prefHeight="329.0" prefWidth="316.0">
                            <font>
                               <Font name="Consolas" size="12.0" />
                            </font>
                         </TextArea>
-                        <Label layoutX="16.0" layoutY="25.0" text="SQL Script:" />
-                        <TextArea layoutX="350.0" layoutY="48.0" prefHeight="313.0" prefWidth="411.0" />
+                        <Label layoutX="16.0" layoutY="25.0" text="SQL Query Script:" />
+                        <TextArea fx:id="sqlResultSetTextArea" layoutX="350.0" layoutY="48.0" prefHeight="367.0" prefWidth="411.0" />
                         <Label layoutX="350.0" layoutY="25.0" text="SQL Result Set:" />
-                        <Button layoutX="16.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Back" />
-                        <Button layoutX="240.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Execute" />
+                        <Button fx:id="backButton2" layoutX="16.0" layoutY="390.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="25.0" prefWidth="85.0" text="Back" />
+                        <Button fx:id="executeButton" layoutX="240.0" layoutY="390.0" mnemonicParsing="false" onAction="#onExecuteButtonClick" prefHeight="25.0" prefWidth="92.0" text="Execute" />
                      </children></AnchorPane>
             </content>
           </Tab>
