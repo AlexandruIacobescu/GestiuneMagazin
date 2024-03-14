@@ -1,4 +1,4 @@
-package com.example.gestiunemagazin.controller;
+package com.example.gestiunemagazin;
 
 import com.example.gestiunemagazin.utils.Message;
 import com.example.gestiunemagazin.utils.ViewHelper;
@@ -45,7 +45,7 @@ public class HelloController {
                 String username = set.getString("username");
                 String passwordHash = set.getString("password_hash");
                 if(BCrypt.checkpw(passwordField.getText(), passwordHash)) {
-                    Parent root = FXMLLoader.load(getClass().getResource("C:\\Users\\alexi\\IdeaProjects\\GestiuneMagazin\\src\\main\\resources\\com\\example\\gestiunemagazin\\employee-view.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("employee-view.fxml"));
                     Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
                     stage.setTitle("Products Manager Toolkit");

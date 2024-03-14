@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="408.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.controller.AdminViewController">
+<AnchorPane prefHeight="408.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.AdminViewController">
    <children>
       <TabPane prefHeight="408.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>

@@ -11,6 +11,4 @@ module com.example.gestiunemagazin {
 
     opens com.example.gestiunemagazin to javafx.fxml;
     exports com.example.gestiunemagazin;
-    exports com.example.gestiunemagazin.controller;
-    opens com.example.gestiunemagazin.controller to javafx.fxml;
 }
