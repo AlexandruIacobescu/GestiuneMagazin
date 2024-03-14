@@ -13,7 +13,7 @@
       <PasswordField fx:id="passwordField" layoutX="159.0" layoutY="226.0" prefHeight="25.0" prefWidth="287.0" />
       <Button fx:id="loginButton" layoutX="395.0" layoutY="255.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="25.0" prefWidth="51.0" text="Login" />
       <Button fx:id="registerButton" layoutX="320.0" layoutY="255.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="25.0" prefWidth="65.0" text="Register" />
-      <Button fx:id="adminButton" layoutX="157.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Admin" />
+      <Button fx:id="adminButton" layoutX="157.0" layoutY="255.0" mnemonicParsing="false" onAction="#onAdminButtonClick" prefHeight="25.0" prefWidth="65.0" text="Admin" />
       <Label layoutX="106.0" layoutY="76.0" text="STORE MANAGEMENT TOOLKIT" textFill="#90001d">
          <font>
             <Font name="Cooper Black" size="23.0" />

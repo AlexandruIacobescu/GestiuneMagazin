@@ -19,35 +19,35 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="205.0" layoutY="14.0" prefHeight="352.0" prefWidth="564.0">
+                        <TableView fx:id="tableView" layoutX="205.0" layoutY="14.0" prefHeight="352.0" prefWidth="564.0">
                            <columns>
-                              <TableColumn prefWidth="83.0" text="ID" />
-                              <TableColumn prefWidth="86.0" text="Firstname" />
-                              <TableColumn prefWidth="85.0" text="Lastname" />
-                              <TableColumn prefWidth="65.0" text="Email" />
-                              <TableColumn prefWidth="72.0" text="Phone" />
-                              <TableColumn prefWidth="94.0" text="Department" />
-                              <TableColumn prefWidth="77.0" text="Salary" />
+                              <TableColumn fx:id="idCol" prefWidth="83.0" text="ID" />
+                              <TableColumn fx:id="fnmCol" prefWidth="86.0" text="Firstname" />
+                              <TableColumn fx:id="lnmCol" prefWidth="85.0" text="Lastname" />
+                              <TableColumn fx:id="emailCol" prefWidth="65.0" text="Email" />
+                              <TableColumn fx:id="phoneCol" prefWidth="72.0" text="Phone" />
+                              <TableColumn fx:id="deptCol" prefWidth="94.0" text="Department" />
+                              <TableColumn fx:id="salCol" prefWidth="77.0" text="Salary" />
                            </columns>
                         </TableView>
-                        <TextField layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="178.0" />
+                        <TextField fx:id="firstnameTextField" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="14.0" text="Firstname:" />
-                        <TextField layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" />
+                        <TextField fx:id="lastnameTextFeild" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="56.0" text="Lastname:" />
-                        <TextField layoutX="14.0" layoutY="115.0" prefHeight="25.0" prefWidth="178.0" />
+                        <TextField fx:id="departmentTextField" layoutX="14.0" layoutY="115.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="98.0" text="Department:" />
-                        <TextField layoutX="14.0" layoutY="157.0" prefHeight="25.0" prefWidth="114.0" />
+                        <TextField fx:id="idTextField" layoutX="14.0" layoutY="157.0" prefHeight="25.0" prefWidth="114.0" />
                         <Label layoutX="14.0" layoutY="140.0" text="ID:" />
-                        <Button layoutX="128.0" layoutY="157.0" mnemonicParsing="false" text="generate" />
-                        <TextField layoutX="14.0" layoutY="199.0" prefHeight="25.0" prefWidth="178.0" />
+                        <Button fx:id="generateButton" layoutX="128.0" layoutY="157.0" mnemonicParsing="false" text="generate" />
+                        <TextField fx:id="emailTextField" layoutX="14.0" layoutY="199.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="182.0" text="Email:" />
-                        <TextField layoutX="14.0" layoutY="241.0" prefHeight="25.0" prefWidth="178.0" />
+                        <TextField fx:id="phoneNumberTextField" layoutX="14.0" layoutY="241.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="224.0" text="Phone Number:" />
-                        <TextField layoutX="14.0" layoutY="283.0" prefHeight="25.0" prefWidth="178.0" />
+                        <TextField fx:id="salaryTextField" layoutX="14.0" layoutY="283.0" prefHeight="25.0" prefWidth="178.0" />
                         <Label layoutX="14.0" layoutY="266.0" text="Salary:" />
-                        <Button layoutX="144.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" text="Insert" />
-                        <Button layoutX="16.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Back" />
-                        <Button layoutX="82.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Reload" />
+                        <Button fx:id="insertButton" layoutX="144.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" text="Insert" />
+                        <Button fx:id="backButton" layoutX="16.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Back" />
+                        <Button fx:id="reloadButton" layoutX="82.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Reload" />
                      </children></AnchorPane>
             </content>
           </Tab>

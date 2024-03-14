@@ -7,10 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.AdminLoginViewController">
    <children>
       <TextField fx:id="usernameTextField" layoutX="167.0" layoutY="178.0" prefHeight="25.0" prefWidth="287.0" />
+      <PasswordField fx:id="passwordField" layoutX="167.0" layoutY="229.0" prefHeight="25.0" prefWidth="287.0" />
+      <Button fx:id="loginButton" layoutX="394.0" layoutY="272.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="25.0" prefWidth="62.0" text="Login" />
+      <Button fx:id="backButton" layoutX="169.0" layoutY="272.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="25.0" prefWidth="62.0" text="Back" />
       <Label layoutX="167.0" layoutY="161.0" text="Username:">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -21,7 +23,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="167.0" layoutY="229.0" prefHeight="25.0" prefWidth="287.0" />
       <Label layoutX="116.0" layoutY="70.0" text="STORE MANAGEMENT TOOLKIT" textFill="#90001d">
          <font>
             <Font name="Cooper Black" size="23.0" />
@@ -32,7 +33,10 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="loginButton" layoutX="394.0" layoutY="272.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Login" />
-      <Button fx:id="backButton" layoutX="169.0" layoutY="272.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Back" />
+      <Label fx:id="errorLabel" layoutX="169.0" layoutY="312.0" text="Label" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

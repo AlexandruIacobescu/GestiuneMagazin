@@ -69,4 +69,9 @@ public class HelloController {
     public void onRegisterButtonClick(ActionEvent event) throws IOException {
         ViewHelper.openView(getClass(), event, "register-view.fxml", "Register Form");
     }
+
+    @FXML
+    public void onAdminButtonClick(ActionEvent event) throws IOException {
+        ViewHelper.openView(getClass(), event, "admin-login-view.fxml", "Admin Login");
+    }
 }
