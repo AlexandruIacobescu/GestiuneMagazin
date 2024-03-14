@@ -45,13 +45,7 @@ public class HelloController {
                 String username = set.getString("username");
                 String passwordHash = set.getString("password_hash");
                 if(BCrypt.checkpw(passwordField.getText(), passwordHash)) {
-                    Parent root = FXMLLoader.load(getClass().getResource("employee-view.fxml"));
-                    Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setTitle("Products Manager Toolkit");
-                    stage.setScene(scene);
-                    stage.centerOnScreen();
-                    stage.show();
+                    ViewHelper.openView(getClass(), event, "employee-view.fxml", "Products Manager");
                 } else {
                     Message msg = new Message(errorLabel, 5000, "Login Credentials Not Valid.", Color.RED);
                     msg.show();
@@ -69,5 +63,10 @@ public class HelloController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    public void onRegisterButtonClick(ActionEvent event) throws IOException {
+        ViewHelper.openView(getClass(), event, "register-view.fxml", "Register Form");
     }
 }

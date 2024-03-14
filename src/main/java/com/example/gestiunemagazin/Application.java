@@ -13,6 +13,7 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Employee Login");
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
