@@ -61,11 +61,12 @@
                         <Button fx:id="backButton2" layoutX="23.0" layoutY="387.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Back" />
                         <Button fx:id="fetchOrdersButton" layoutX="23.0" layoutY="84.0" mnemonicParsing="false" onAction="#onFetchOrdersButtonClick" text="Fetch Orders" />
                         <Button fx:id="displayOrderItemsButton" layoutX="124.0" layoutY="84.0" mnemonicParsing="false" onAction="#onDisplayOrderItemsButtonClick" text="Display Order Items" />
-                        <Label fx:id="errorLabel" layoutX="23.0" layoutY="127.0" text="Label" visible="false">
+                        <Label fx:id="errorLabel" layoutX="26.0" layoutY="173.0" text="Label" visible="false">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font>
                         </Label>
+                        <Button fx:id="generateAndSaveButton" layoutX="26.0" layoutY="123.0" mnemonicParsing="false" onAction="#onGenerateAndSaveButtonClick" prefHeight="25.0" prefWidth="172.0" text="Save Invoice and Update DB" />
                      </children></AnchorPane>
             </content>
           </Tab>

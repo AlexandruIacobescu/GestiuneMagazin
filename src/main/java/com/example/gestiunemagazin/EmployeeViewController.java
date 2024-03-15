@@ -5,7 +5,6 @@ import com.example.gestiunemagazin.entity.Product;
 import com.example.gestiunemagazin.utils.Message;
 import com.example.gestiunemagazin.utils.UtilityFunctions;
 import com.example.gestiunemagazin.utils.ViewHelper;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,8 +13,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -164,6 +168,50 @@ public class EmployeeViewController implements Initializable {
             }
         } else {
             new Message(errorLabel, 3500, "No Order Selected", Color.DARKRED).show();
+        }
+    }
+
+    @FXML
+    public void onGenerateAndSaveButtonClick() {
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:inventory.db")) {
+
+            String sql = "SELECT * FROM Order_Items WHERE order_id = " + ordersComboBox.getValue() + ";";
+
+            Statement stmt = conn.createStatement();
+
+            ResultSet set = stmt.executeQuery(sql);
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("txt files (*.txt)","*.txt"));
+            File file = fileChooser.showSaveDialog(new Stage());
+            PrintWriter printWriter = new PrintWriter(file);
+            printWriter.write(String.format("name%0" + (50 - "name".length()) + "d", 0).replace('0', ' '));
+            printWriter.write(String.format("quantity%0" + (50 - "quantity".length()) + "d", 0).replace('0', ' '));
+            printWriter.write(String.format("%0" + 100 + "d\n", 0).replace('0', '-'));
+
+            while(set.next()) {
+                String sql2 = """
+                            SELECT name
+                            FROM Products
+                            WHERE id=  ?;
+                        """;
+                PreparedStatement preparedStatement = conn.prepareStatement(sql2);
+                preparedStatement.setInt(1, set.getInt("product_id"));
+                ResultSet resultSet = preparedStatement.executeQuery();
+                resultSet.next();
+                printWriter.write(String.format(resultSet.getString("name") + "%0" + (50 - resultSet.getString("name").length()) + "d", 0).replace('0', ' '));
+                printWriter.write(String.format(set.getInt("quantity") + "%0" + (50 - String.valueOf(set.getInt("quantity")).length()) + "d\n", 0).replace('0', ' '));
+            }
+            printWriter.close();
+
+        } catch (SQLException | FileNotFoundException ex) {
+            ex.printStackTrace();
+            UtilityFunctions.showErrorMessageDialog(
+                    "Exception Dialog",
+                    "Database Operation Failed",
+                    "Database error. Please expand for additional details.",
+                    ex.getMessage()
+            );
         }
     }
 
