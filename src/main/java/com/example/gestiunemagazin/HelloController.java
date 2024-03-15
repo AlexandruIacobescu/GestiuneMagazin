@@ -30,8 +30,7 @@ public class HelloController {
 
     @FXML
     public void onLoginButtonClick(ActionEvent event) {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:inventory.db");
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:inventory.db")) {
             String sql = """
                         SELECT username, password_hash
                         FROM Accounts
@@ -45,6 +44,7 @@ public class HelloController {
                 String username = set.getString("username");
                 String passwordHash = set.getString("password_hash");
                 if(BCrypt.checkpw(passwordField.getText(), passwordHash)) {
+//                    conn.close();
                     ViewHelper.openView(getClass(), event, "employee-view.fxml", "Product Manager");
                 } else {
                     Message msg = new Message(errorLabel, 5000, "Login Credentials Not Valid.", Color.RED);

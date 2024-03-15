@@ -2,13 +2,16 @@ package com.example.gestiunemagazin;
 
 import com.example.gestiunemagazin.entity.Product;
 import com.example.gestiunemagazin.utils.UtilityFunctions;
+import com.example.gestiunemagazin.utils.ViewHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -47,8 +50,8 @@ public class EmployeeViewController implements Initializable {
         StringBuilder sb = new StringBuilder();
         switch (sqlCommandCategoryComboBox.getValue()) {
             case "INSERT" -> {
-                sb.append("INSERT INTO Products (\n\tname, \n\tdescription, \n\tcategory, \n\tquantity, \n\texpiration_date, \n\tbuy_price, \n\tbuy_date, \n\tprice, \n\tmanufacturer, \n\tweight, \n\tsize, \n\tcolor, \n\trating, \n\tlocation\n)");
-                sb.append("\nVALUES(\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _\n);");
+                sb.append("INSERT INTO Products (\n\tname, \n\tcategory, \n\tquantity, \n\texpiration_date, \n\tprice, \n\tmanufacturer\n)");
+                sb.append("\nVALUES(\n\t _,\n\t _,\n\t _,\n\t _,\n\t _,\n\t _\n);");
                 sqlCommandTextArea.setText(sb.toString());
             }
             case "UPDATE" -> {
@@ -66,11 +69,10 @@ public class EmployeeViewController implements Initializable {
 
     @FXML
     public void onExecuteButtonClick() {
-        Statement stmt;
         switch (sqlCommandCategoryComboBox.getValue()) {
             case "INSERT", "UPDATE", "DELETE" -> {
-                try (Connection conn = DriverManager.getConnection("jdbc:sqlite:inventory.db")) {
-                    stmt = conn.createStatement();
+                try (Connection conn = DriverManager.getConnection("jdbc:sqlite:inventory.db")){
+                    Statement stmt = conn.createStatement();
                     stmt.executeUpdate(sqlCommandTextArea.getText());
                 } catch (SQLException ex) {
                     ex.printStackTrace();
@@ -80,6 +82,8 @@ public class EmployeeViewController implements Initializable {
                             "Database error. Please expand for additional details.",
                             ex.getMessage()
                     );
+                } finally {
+                    populateProductsTableVIewWithData();
                 }
             }
         }
@@ -90,10 +94,16 @@ public class EmployeeViewController implements Initializable {
         populateProductsTableVIewWithData();
     }
 
+    @FXML
+    public void onBackButtonClick(ActionEvent event) throws IOException {
+        ViewHelper.openView(getClass(), event, "login-view.fxml", "Employee Login");
+    }
+
     private void populateProductsTableVIewWithData() {
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:inventory.db")) {
             idCol.setCellValueFactory(new PropertyValueFactory<>("ID"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
             unitsCol.setCellValueFactory(new PropertyValueFactory<>("Units"));
             expDateCol.setCellValueFactory(new PropertyValueFactory<>("ExpDate"));
             priceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
