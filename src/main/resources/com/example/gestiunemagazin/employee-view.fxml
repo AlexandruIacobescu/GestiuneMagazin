@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -17,22 +19,27 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ComboBox layoutX="22.0" layoutY="35.0" prefHeight="25.0" prefWidth="228.0" />
+                        <ComboBox fx:id="sqlCommandCategoryComboBox" layoutX="22.0" layoutY="35.0" onAction="#onSqlCommandCategoryComboBoxIndexChanged" prefHeight="25.0" prefWidth="228.0" />
                         <Label layoutX="22.0" layoutY="18.0" text="Select SQL statement template:" />
-                        <TextArea layoutX="22.0" layoutY="67.0" prefHeight="303.0" prefWidth="317.0">
+                        <TextArea fx:id="sqlCommandTextArea" layoutX="22.0" layoutY="67.0" prefHeight="303.0" prefWidth="317.0">
                            <font>
                               <Font name="Consolas" size="12.0" />
                            </font>
                         </TextArea>
-                        <TextArea layoutX="351.0" layoutY="39.0" prefHeight="384.0" prefWidth="523.0">
-                           <font>
-                              <Font name="Consolas" size="12.0" />
-                           </font>
-                        </TextArea>
-                        <Label layoutX="351.0" layoutY="18.0" text="Result Set:" />
-                        <Button layoutX="125.0" layoutY="390.0" mnemonicParsing="false" text="Save Result to CSV..." />
-                        <Button layoutX="22.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Back" />
-                        <Button layoutX="259.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Execute" />
+                        <Button fx:id="refreshDataButton" layoutX="166.0" layoutY="390.0" mnemonicParsing="false" onAction="#onRefreshDataClick" text="Refresh Data" />
+                        <Button fx:id="backButton" layoutX="22.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Back" />
+                        <Button fx:id="executeButton" layoutX="259.0" layoutY="390.0" mnemonicParsing="false" onAction="#onExecuteButtonClick" prefHeight="25.0" prefWidth="79.0" text="Execute" />
+                        <TableView fx:id="productsTableView" layoutX="352.0" layoutY="27.0" prefHeight="394.0" prefWidth="526.0">
+                           <columns>
+                              <TableColumn fx:id="idCol" prefWidth="46.0" text="ID" />
+                              <TableColumn fx:id="nameCol" prefWidth="104.0" text="Name" />
+                              <TableColumn fx:id="categoryCol" prefWidth="75.0" text="Category" />
+                              <TableColumn fx:id="unitsCol" prefWidth="66.0" text="Units" />
+                              <TableColumn fx:id="expDateCol" prefWidth="84.0" text="Exp. Date" />
+                              <TableColumn fx:id="priceCol" prefWidth="62.0" text="Price" />
+                              <TableColumn fx:id="manufacturerCol" prefWidth="88.0" text="Manufacturer" />
+                           </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>

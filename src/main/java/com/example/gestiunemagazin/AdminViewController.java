@@ -2,6 +2,7 @@ package com.example.gestiunemagazin;
 
 import com.example.gestiunemagazin.entity.Employee;
 import com.example.gestiunemagazin.utils.Message;
+import com.example.gestiunemagazin.utils.UtilityFunctions;
 import com.example.gestiunemagazin.utils.ViewHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,7 +92,7 @@ public class AdminViewController implements Initializable {
             stmt.setString(7, salaryTextField.getText());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            showErrorMessageDialog(
+            UtilityFunctions.showErrorMessageDialog(
                     "Exception Dialog",
                     "Employee insertion operation failed.",
                     "Database error. Please expand for additional details.",
@@ -203,34 +204,5 @@ public class AdminViewController implements Initializable {
         }
     }
 
-    private void showErrorMessageDialog(String title, String headerText, String contentText, String exceptionMessage) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(headerText);
-        alert.setContentText(contentText);
 
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        pw.write(exceptionMessage);
-        String exceptionText = sw.toString();
-
-        Label label = new Label("The exception stacktrace was:");
-
-        TextArea textArea = new TextArea(exceptionText);
-        textArea.setEditable(false);
-        textArea.setWrapText(true);
-
-        textArea.setMaxWidth(Double.MAX_VALUE);
-        textArea.setMaxHeight(Double.MAX_VALUE);
-        GridPane.setVgrow(textArea, Priority.ALWAYS);
-        GridPane.setHgrow(textArea, Priority.ALWAYS);
-
-        GridPane expContent = new GridPane();
-        expContent.setMaxWidth(Double.MAX_VALUE);
-        expContent.add(label, 0, 0);
-        expContent.add(textArea, 0, 1);
-
-        alert.getDialogPane().setExpandableContent(expContent);
-        alert.showAndWait();
-    }
 }
