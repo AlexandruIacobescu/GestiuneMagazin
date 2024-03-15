@@ -50,13 +50,22 @@
                      <children>
                         <ComboBox fx:id="ordersComboBox" layoutX="23.0" layoutY="35.0" prefHeight="25.0" prefWidth="222.0" />
                         <Label layoutX="23.0" layoutY="18.0" text="Orders:" />
-                        <TableView layoutX="318.0" layoutY="26.0" prefHeight="395.0" prefWidth="555.0">
+                        <TableView fx:id="orderItemsTableView" layoutX="318.0" layoutY="22.0" prefHeight="395.0" prefWidth="503.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn fx:id="idCol2" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="orderIdCol" prefWidth="109.0" text="Order ID" />
+                            <TableColumn fx:id="productsIdCol" prefWidth="87.0" text="Product ID" />
+                              <TableColumn fx:id="quantityCol" prefWidth="115.0" text="Quantity" />
                           </columns>
                         </TableView>
-                        <Button fx:id="backButton" layoutX="23.0" layoutY="387.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Back" />
+                        <Button fx:id="backButton2" layoutX="23.0" layoutY="387.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Back" />
+                        <Button fx:id="fetchOrdersButton" layoutX="23.0" layoutY="84.0" mnemonicParsing="false" onAction="#onFetchOrdersButtonClick" text="Fetch Orders" />
+                        <Button fx:id="displayOrderItemsButton" layoutX="124.0" layoutY="84.0" mnemonicParsing="false" onAction="#onDisplayOrderItemsButtonClick" text="Display Order Items" />
+                        <Label fx:id="errorLabel" layoutX="23.0" layoutY="127.0" text="Label" visible="false">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>
