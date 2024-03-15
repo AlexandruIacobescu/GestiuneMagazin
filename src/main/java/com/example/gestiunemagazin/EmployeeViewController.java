@@ -2,7 +2,6 @@ package com.example.gestiunemagazin;
 
 import com.example.gestiunemagazin.entity.Product;
 import com.example.gestiunemagazin.utils.UtilityFunctions;
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
