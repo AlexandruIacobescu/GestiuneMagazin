@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="467.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.EmployeeViewController">
+<AnchorPane prefHeight="467.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestiunemagazin.EmployeeViewController">
    <children>
       <TabPane prefHeight="467.0" prefWidth="889.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -58,7 +58,7 @@
                               <TableColumn fx:id="quantityCol" prefWidth="115.0" text="Quantity" />
                           </columns>
                         </TableView>
-                        <Button fx:id="backButton2" layoutX="23.0" layoutY="387.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Back" />
+                        <Button fx:id="backButton2" layoutX="23.0" layoutY="387.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="25.0" prefWidth="57.0" text="Back" />
                         <Button fx:id="fetchOrdersButton" layoutX="23.0" layoutY="84.0" mnemonicParsing="false" onAction="#onFetchOrdersButtonClick" text="Fetch Orders" />
                         <Button fx:id="displayOrderItemsButton" layoutX="124.0" layoutY="84.0" mnemonicParsing="false" onAction="#onDisplayOrderItemsButtonClick" text="Display Order Items" />
                         <Label fx:id="errorLabel" layoutX="26.0" layoutY="173.0" text="Label" visible="false">
